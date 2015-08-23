@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="crypto">
+      <UniqueIdentifier>{b3271047-cbeb-4a84-97e0-840e91d643de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="socket">
+      <UniqueIdentifier>{450726ea-4815-48a0-a2af-031defafcaac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="type">
+      <UniqueIdentifier>{a13ea771-6484-4597-bdf1-a8f6962e5b24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="singleton">
+      <UniqueIdentifier>{8ed0fb6a-3a03-4c21-a0ca-115f852ec1b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logger">
+      <UniqueIdentifier>{fd02b7f0-93a9-48eb-9015-9927784ae737}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\src\base\crypto\base64.cpp">
+      <Filter>crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\base\crypto\md5.cpp">
+      <Filter>crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\base\socket\address.cpp">
+      <Filter>socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\base\socket\basesocket.cpp">
+      <Filter>socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\base\socket\socketexception.cpp">
+      <Filter>socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\base\socket\tcp.cpp">
+      <Filter>socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\base\socket\udp.cpp">
+      <Filter>socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\base\logger\logger.cpp">
+      <Filter>logger</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\src\base\crypto\base64.hpp">
+      <Filter>crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\base\crypto\md5.hpp">
+      <Filter>crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\base\socket\address.hpp">
+      <Filter>socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\base\socket\basesocket.hpp">
+      <Filter>socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\base\socket\commondefine.hpp">
+      <Filter>socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\base\socket\socketexception.hpp">
+      <Filter>socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\base\socket\tcp.hpp">
+      <Filter>socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\base\socket\udp.hpp">
+      <Filter>socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\base\type\basetype.hpp">
+      <Filter>type</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\base\singleton\singleton.hpp">
+      <Filter>singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\base\logger\logger.hpp">
+      <Filter>logger</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
