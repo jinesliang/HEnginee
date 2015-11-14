@@ -22,7 +22,7 @@ public:
 	inline LogLevel GetLogLevel() { return log_level_; } 
 	inline void SetLogLevel(LogLevel log_level) { log_level_ = log_level; }
 
-	void Initialize(string path, LogLevel log_level = LOG_WARNING, int max_size = 50*1024*1024);
+	void Initialize(std::string path, LogLevel log_level = LOG_WARNING, int max_size = 50*1024*1024);
 
 	void LogTrace(LogLevel log_level, char *file_name, int line, char *format, ...);
 
@@ -34,7 +34,7 @@ private:
 
 	void CloseLog();
 private:	
-	string log_path_;
+	std::string log_path_;
 	LogLevel log_level_;
 	int max_size_;
 	int log_sequence_;

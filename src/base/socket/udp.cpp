@@ -15,11 +15,11 @@ namespace Socket
 	}
 
 	//UDP实现
-    UDP::UDP(void) : CommonSocket(SOCK_DGRAM)
+    UDP::UDP(void) : BaseSocket(SOCK_DGRAM)
     {
     }
 
-    UDP::UDP(const UDP &udp) : CommonSocket()
+    UDP::UDP(const UDP &udp) : BaseSocket()
     {
         this->_socket_id = udp._socket_id;
         this->_opened = udp._opened;
@@ -111,7 +111,11 @@ namespace Socket
         int received_bytes;
         socklen_t size = sizeof(struct sockaddr);
 
-        if ((received_bytes = recvfrom(this->_socket_id, (char*)data, len, 0, (struct sockaddr*)address, (socklen_t*)&size)) == -1)
+#ifdef WINDOWS
+		if ((received_bytes = recvfrom(this->_socket_id, (char*)data, len, 0, (struct sockaddr*)address, (int*)&size)) == -1)
+#else
+		if ((received_bytes = recvfrom(this->_socket_id, (char*)data, len, 0, (struct sockaddr*)address, (socklen_t*)&size)) == -1)
+#endif
         {
             throw SocketException("[receive] 不能接收到数据");
         }

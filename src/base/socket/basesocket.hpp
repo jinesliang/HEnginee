@@ -1,12 +1,6 @@
 #pragma once
 
-/* 简介：UDP
-*  作者：Haust
-*  日期：2015-08-21
-*/
-#pragma once
-
-/* 简介：Base Socket Socket基类
+/* 简介：BaseSocket Socket基类
 *  作者：Haust
 *  日期：2015-08-21
 */

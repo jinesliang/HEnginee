@@ -9,7 +9,7 @@ Logger::~Logger(void)
 {
 }
 
-void Logger::Initialize(string path, LogLevel log_level /* = LOG_WARNING */, int max_size /* = 50*1024*1024 */)
+void Logger::Initialize(std::string path, LogLevel log_level /* = LOG_WARNING */, int max_size /* = 50*1024*1024 */)
 {
 	log_path_ = path;
 	log_level_ = log_level;

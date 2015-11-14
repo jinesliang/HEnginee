@@ -95,8 +95,18 @@ public:
 };
 
 TypeDefine(Integer, int, d);
+TypeDefine(UInteger, unsigned int, u);
 TypeDefine(Character, char, c);
+TypeDefine(UCharacter, unsigned char, c);
 TypeDefine(Float, float, f);
 TypeDefine(Short, short, d);
-TypeDefine(Long, long, ld);
+TypeDefine(Long, long, lld);
+TypeDefine(ULong, unsigned long, llu);
 TypeDefine(Double, double, g);
+
+#undef CompareOperatorDefine
+#undef CompareOperatorDefine2
+#undef SelfOperDefine
+#undef SelfOperDefine2
+#undef InterOperDefine
+#undef TypeDefine

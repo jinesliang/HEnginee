@@ -9,11 +9,11 @@ using namespace std;
 
 namespace Socket
 {
-    TCP::TCP(void) : CommonSocket(SOCK_STREAM)
+    TCP::TCP(void) : BaseSocket(SOCK_STREAM)
     {
     }
     
-    TCP::TCP(const TCP &tcp) : CommonSocket()
+    TCP::TCP(const TCP &tcp) : BaseSocket()
     {
         this->_socket_id = tcp._socket_id;
         this->_opened = tcp._opened;
@@ -37,7 +37,7 @@ namespace Socket
     
     void TCP::listen_on_port(Port port, unsigned int listeners = 1)
     {
-        CommonSocket::listen_on_port(port);
+        BaseSocket::listen_on_port(port);
         
         if (listen(this->_socket_id, listeners) != 0)
         {
@@ -69,7 +69,12 @@ namespace Socket
         socklen_t len = sizeof(struct sockaddr_in);
         
         ret.close();
-        ret._socket_id = accept(this->_socket_id, (struct sockaddr*)&ret._address, &len);
+#ifdef WINDOWS
+		ret._socket_id = accept(this->_socket_id, (struct sockaddr*)&ret._address, (int*)&len);
+#else
+		ret._socket_id = accept(this->_socket_id, (struct sockaddr*)&ret._address, (socklen_t*)&len);
+#endif
+        
         ret._opened = true;
         ret._binded = true;
         
@@ -109,8 +114,13 @@ namespace Socket
             throw SocketException(error.str());
         }
         
-        int ret;
-        if ((ret = recv(this->_socket_id, buffer, len, 0)) == -1) throw SocketException("[receive] 接收失败");
+        int ret = 0;
+#ifdef WINDOWS
+		ret = recv(this->_socket_id, (char*)buffer, len, 0);
+#else
+		ret = recv(this->_socket_id, buffer, len, 0);
+#endif
+		if(-1 == ret) throw SocketException("[receive] 接收失败");
         return ret;
     }
     
