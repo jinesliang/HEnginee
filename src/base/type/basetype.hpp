@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdio.h>
+#include <string.h>
 
 #define CompareOperatorDefine(T, oper)	\
 	bool operator##oper(const T& rh)	\
@@ -54,10 +55,19 @@ public:									\
 	virtual const char *toString()		\
 {									\
 	static char valuestr[20];			\
+	memset(valuestr, 0, sizeof(valuestr));        \
 	sprintf(valuestr, "%%%s", #f);	\
 	sprintf(valuestr, valuestr, value_);\
 	return valuestr;				\
-}									\
+}\
+	static const char *toString(t value)      \
+{\
+	static char valuestr[20];			\
+	memset(valuestr, 0, sizeof(valuestr));        \
+	sprintf(valuestr, "%%%s", #f);	\
+	sprintf(valuestr, valuestr, value);\
+	return valuestr;				\
+}\
 	\
 	SelfOperDefine(T, ++)\
 	SelfOperDefine(T, --)	\
